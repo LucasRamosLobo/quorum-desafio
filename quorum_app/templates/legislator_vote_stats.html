@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Legislator Vote Statistics</title>
+</head>
+<body>
+
+<h1>Legislator Vote Statistics</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Supported Bills</th>
+        <th>Opposed Bills</th>
+    </tr>
+    {% for stat in stats %}
+        <tr>
+            <td>{{ stat.legislator.id }}</td>
+            <td>{{ stat.legislator.name }}</td>
+            <td>{{ stat.supported_bills }}</td>
+            <td>{{ stat.opposed_bills }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

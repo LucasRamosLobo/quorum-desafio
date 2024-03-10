@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Vote Statistics</title>
+</head>
+<body>
+
+<h2>Legislator Vote Statistics</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Supported Bills</th>
+        <th>Opposed Bills</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for legislator in legislators %}
+        <tr>
+            <td>{{ legislator.id }}</td>
+            <td>{{ legislator.name }}</td>
+            <td>{{ legislator.supported_bills }}</td>
+            <td>{{ legislator.opposed_bills }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<h2>Bill Vote Statistics</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Supporters</th>
+        <th>Opposers</th>
+        <th>Primary Sponsor</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for bill_stat in bill_stats %}
+        <tr>
+            <td>{{ bill_stat.bill_id }}</td>
+            <td>{{ bill_stat.bill_title }}</td>
+            <td>{{ bill_stat.supporters }}</td>
+            <td>{{ bill_stat.opposers }}</td>
+            <td>{{ bill_stat.primary_sponsor }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

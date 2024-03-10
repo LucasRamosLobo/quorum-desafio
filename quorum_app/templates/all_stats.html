@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+    </style>
+<h2>Legislator Statistics</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Legislator</th>
+      <th>Supported Bills</th>
+      <th>Opposed Bills</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for stat in legislators_stats %}
+      <tr>
+        <td>{{ stat.id }}</td>
+        <td>{{ stat.name }}</td>
+        <td>{{ stat.supported_bills }}</td>
+        <td>{{ stat.opposed_bills }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Bill Statistics</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Bill Title</th>
+      <th>Supporters</th>
+      <th>Opposers</th>
+      <th>Primary Sponsor</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for bill_stat in bill_stats %}
+      <tr>
+        <td>{{ bill_stat.bill_id }}</td>
+        <td>{{ bill_stat.bill_title }}</td>
+        <td>{{ bill_stat.supporters }}</td>
+        <td>{{ bill_stat.opposers }}</td>
+        <td>{{ bill_stat.primary_sponsor }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Questions & Answers</h2>
+
+<h3>1. Discuss your strategy and decisions implementing the application. Please, consider time complexity, effort cost, technologies used, and any other variable that you understand important in your development process.</h3>
+<p>Answer: My strategy involved creating Django models to represent the data, namely Legislator, Bill, Vote, and VoteResult. I used Django's ORM to perform efficient queries, reducing time complexity. The effort cost was minimized by leveraging the existing Django framework and its features. Technologies used include Django, Python, and HTML for web development. The decision to structure the application with separate models for each data entity allowed for better organization and readability of the code.</p>
+
+<h3>2. How would you change your solution to account for future columns that might be requested, such as “Bill Voted On Date” or “Co-Sponsors”?</h3>
+<p>Answer: To accommodate future columns, I would extend the existing models by adding fields for the new data, such as "voted_on_date" in the Bill model or creating a new model for Co-Sponsors. I would then update the data import process and adjust the queries in views accordingly. This approach ensures flexibility and scalability for handling additional data columns.</p>
+
+<h3>3. How would you change your solution if instead of receiving CSVs of data, you were given a list of legislators or bills that you should generate a CSV for?</h3>
+<p>Answer: If provided with a list of legislators or bills to generate a CSV, I would create a new Django management command to export the required data to CSV format. This command would take input parameters, such as a list of legislator IDs or bill IDs, and dynamically generate the CSV file. The Django CSV module or the CSV writer in Python could be used for this purpose.</p>
+
+<h3>4. How long did you spend working on the assignment?</h3>
+<p>Answer: I spent approximately 2 hours working on the assignment, including data modeling, implementation, testing, and documentation.</p>
+
+</head>
+</html>
