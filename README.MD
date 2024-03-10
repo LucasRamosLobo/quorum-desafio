@@ -8,7 +8,7 @@ This project is a Django web application that provides insights into legislative
 
    ```bash
    git clone https://github.com/LucasRamosLobo/quorum-desafio.git
-   cd quorum-challenge
+   cd quorum-desafio
 Install dependencies:
 
 bash
